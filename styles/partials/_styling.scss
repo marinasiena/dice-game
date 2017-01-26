@@ -1,0 +1,84 @@
+// Colors
+
+//Fonts
+
+//Gradients
+$whitegradient: linear-gradient(
+  rgba(250,250,250,0.40),
+  rgba(250,250,250,0.40)
+  );
+
+//Text-sizing
+$xsmall: 0.8rem;
+$small: 1rem;
+$medium: 1.5rem;
+$large: 3rem;
+$xlarge: 4.5rem;
+
+//Transitions
+$standard: 0.5s ease;
+
+//ARIA compliance background
+@mixin ariabg {
+  background:$whitegradient;
+  border-radius:1.2rem;
+}
+
+//Mixins
+
+@mixin topround {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+@mixin bottomround {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+@mixin bluefilter {
+  background-color: $mdblue;
+  background-blend-mode: overlay;
+}
+@mixin clearboth {
+  clear:both;
+}
+@mixin is-icon {
+  height:35px;
+  width:35px;
+}
+@mixin is-round {
+  border-radius:50%;
+}
+@mixin nav-hover {
+  color:$white;
+  transform:scale(1.1);
+}
+@mixin space-after {
+  margin-bottom:2rem;
+}
+@mixin vcenter {
+  top:50%;
+  transform:translateY(-50%);
+}
+
+//Breakpoints
+
+@mixin bp($point) {
+  @if $point == tiny {
+    @media screen and (max-width: 400px) { @content; }
+  }
+  @if $point == mobile {
+    @media screen and (max-width: 660px) { @content; }
+  }
+  @if $point == small {
+    @media screen and (min-width: 550px) { @content; }
+  }
+  @if $point == medium {
+      @media screen and (max-width: 800px) { @content; }
+  }
+  @else if $point == large {
+      @media screen and (max-width: 978px) { @content; }
+  }
+  @else if $point == full {
+      @media screen and (min-width: 978px) { @content; }
+  }
+}
